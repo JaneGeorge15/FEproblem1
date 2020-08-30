@@ -12,7 +12,6 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { environment } from '@env/environment';
 import { CoreModule } from '@core';
-import { AuthModule } from '@app/auth';
 import { HomeModule } from './home/home.module';
 import { ShellModule } from './shell/shell.module';
 import { AppComponent } from './app.component';
@@ -35,7 +34,6 @@ import { FalconeSearchModule } from './falcone-search/falcone-search.module';
     ShellModule,
     HomeModule,
     FalconeSearchModule,
-    AuthModule,
     AppRoutingModule, // must be imported as the last module as it contains the fallback route
   ],
   declarations: [AppComponent],
