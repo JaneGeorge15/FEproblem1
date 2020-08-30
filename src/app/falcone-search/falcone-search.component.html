@@ -1,0 +1,113 @@
+<div class="container-fluid">
+  <!--Display div of planets & vehicle image-->
+
+  <form #searchForm="ngForm" (ngSubmit)="findFalconeSearch(searchForm)">
+    <div class="home-main text-center">
+      <h4>Select planets you want to search in :</h4>
+
+      <!--Display div of planets-->
+      <div class="row">
+        <div class="col-md-3 mt-4" *ngFor="let item of vehicleList; let i = index">
+          <label>Destination {{ i + 1 }}</label>
+          <ng-select
+            required
+            [clearable]="false"
+            placeholder="Select"
+            (change)="onPlanetSelect($event)"
+            name="planet_names"
+            [(ngModel)]="details.planet_names[i]"
+          >
+            <ng-option *ngFor="let planet of planetList" [disabled]="planet.isSelected" [value]="planet">{{
+              planet.name
+            }}</ng-option>
+          </ng-select>
+        </div>
+      </div>
+
+      <!--Display div of vehicles-->
+      <div class="row">
+        <div class="col-md-3 mt-4">
+          <ng-container *ngIf="details.planet_names[0]">
+            <div class="custom-control custom-radio" *ngFor="let item of vehicleList; let i = index">
+              <input
+                required
+                [disabled]="!item.total_no"
+                type="radio"
+                class="custom-control-input"
+                id="vehicle1{{ i }}"
+                [value]="item"
+                name="vehicle1{{ i }}"
+                [(ngModel)]="details.vehicle_names[0]"
+                (change)="onVehicleSelect(item)"
+              />
+              <label class="custom-control-label" for="vehicle1{{ i }}">{{ item.name }} ({{ item.total_no }})</label>
+            </div>
+          </ng-container>
+        </div>
+        <div class="col-md-3 mt-4">
+          <ng-container *ngIf="details.planet_names[1]">
+            <div class="custom-control custom-radio" *ngFor="let item of vehicleList; let i = index">
+              <input
+                required
+                [disabled]="!item.total_no"
+                type="radio"
+                class="custom-control-input"
+                [value]="item"
+                id="vehicle2{{ i }}"
+                name="vehicle2{{ i }}"
+                [(ngModel)]="details.vehicle_names[1]"
+                (change)="onVehicleSelect(item)"
+              />
+              <label class="custom-control-label" for="vehicle2{{ i }}">{{ item.name }} ({{ item.total_no }})</label>
+            </div>
+          </ng-container>
+        </div>
+        <div class="col-md-3 mt-4">
+          <ng-container *ngIf="details.planet_names[2]">
+            <div class="custom-control custom-radio" *ngFor="let item of vehicleList; let i = index">
+              <input
+                required
+                [disabled]="!item.total_no"
+                type="radio"
+                class="custom-control-input"
+                [value]="item"
+                id="vehicle3{{ i }}"
+                name="vehicle3{{ i }}"
+                [(ngModel)]="details.vehicle_names[2]"
+                (change)="onVehicleSelect(item)"
+              />
+              <label class="custom-control-label" for="vehicle3{{ i }}">{{ item.name }} ({{ item.total_no }})</label>
+            </div>
+          </ng-container>
+        </div>
+        <div class="col-md-3 mt-4">
+          <ng-container *ngIf="details.planet_names[3]">
+            <div class="custom-control custom-radio" *ngFor="let item of vehicleList; let i = index">
+              <input
+                required
+                [disabled]="!item.total_no"
+                type="radio"
+                class="custom-control-input"
+                [value]="item"
+                id="vehicle4{{ i }}"
+                name="vehicle4{{ i }}"
+                [(ngModel)]="details.vehicle_names[3]"
+                (change)="onVehicleSelect(item)"
+              />
+              <label class="custom-control-label" for="vehicle4{{ i }}">{{ item.name }} ({{ item.total_no }})</label>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <!--Display div of total time taken and search button-->
+      <div class="mt-4">
+        <h4>Time Taken : {{ timeTaken }}</h4>
+        <!-- <button [disabled]="details.planet_names.length <4 || details.vehicle_names.length <4" type="submit" class="btn btn-warning mt-4">
+        Find Falcone
+      </button> -->
+        <button [disabled]="!searchForm.valid" type="submit" class="btn btn-warning mt-4">Find Falcone</button>
+      </div>
+    </div>
+  </form>
+</div>

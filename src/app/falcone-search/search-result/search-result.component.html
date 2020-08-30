@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <div class="home-main text-center">
+    <h1>Finding Falcone</h1>
+    <ng-container *ngIf="result.status === 'success'; else elseBlock">
+      <p>Success! Congratulations on finding Falcone. King Shan is mighty pleased.</p>
+      <p>Time Taken : {{ result.timeTaken }}</p>
+      <p>Planet Found : {{ result.planet_name }}</p>
+    </ng-container>
+    <ng-template #elseBlock>
+      <p>Sorry! Could'nt able to find Falcone.</p>
+    </ng-template>
+
+    <div>
+      <button type="button" class="btn btn-warning mt-4" (click)="startAgain()">Start Again</button>
+    </div>
+  </div>
+</div>

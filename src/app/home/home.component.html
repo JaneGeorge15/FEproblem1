@@ -1,0 +1,11 @@
+<div class="container-fluid">
+  <div class="home-main text-center">
+    <img *ngIf="step === 1" class="logo" src="assets/images/falcone.png" alt="falcone question" />
+    <img *ngIf="step === 2" class="logo" src="assets/images/itemlist.png" alt="falcone question" />
+    <div>
+      <button type="button" class="btn btn-warning mt-4" (click)="navigateToSearch()">
+        {{ step === 1 ? 'NEXT' : 'START' }}
+      </button>
+    </div>
+  </div>
+</div>
