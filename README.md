@@ -21,9 +21,9 @@ e2e/                         end-to-end tests
 src/                         project source code
 |- app/                      app components
 |  |- @core/                 core module (singleton services and single-use components)
-|  |- @home/                 home module (home components)
-|  |- @falcone-search/       falcone search module (search feature components)
-|  |- @shell/                shell module (common module)
+|  |- home/                 home module (home components)
+|  |- falcone-search/       falcone search module (search feature components)
+|  |- shell/                shell module (common module)
 |  |- app.component.*        app root component (shell)
 |  |- app.module.ts          app root module definition
 |  |- app-routing.module.ts  app routes
