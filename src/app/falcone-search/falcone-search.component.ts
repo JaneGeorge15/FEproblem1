@@ -18,7 +18,7 @@ export class FalconeSearchComponent implements OnInit {
     planet_names: [],
     vehicle_names: [],
   };
-  timeTaken: number = 0;
+  timeTaken = 0;
 
   constructor(
     private falconeSearchService: FalconeSearchService,
@@ -123,7 +123,6 @@ export class FalconeSearchComponent implements OnInit {
       for (var i = 0, len = this.details.planet_names.length; i < len; i++) {
         for (var j = 0, len2 = this.details.vehicle_names.length; j < len2; j++) {
           if (i === j) {
-            console.log(this.details.vehicle_names[j]);
             const distance = this.details.planet_names[i].distance;
             const speed = this.details.vehicle_names[j].speed;
 
@@ -153,8 +152,8 @@ export class FalconeSearchComponent implements OnInit {
   findFalconeSubmit(token: string) {
     if (this.details.planet_names && this.details.vehicle_names) {
       this.spinner.show();
-      let planet_names: any = [];
-      let vehicle_names: any = [];
+      const planet_names: any = [];
+      const vehicle_names: any = [];
 
       this.details.planet_names.forEach((element: any) => {
         planet_names.push(element.name);
@@ -163,7 +162,7 @@ export class FalconeSearchComponent implements OnInit {
         vehicle_names.push(element.name);
       });
 
-      let data = {
+      const data = {
         planet_names: planet_names,
         vehicle_names: vehicle_names,
         token: token,

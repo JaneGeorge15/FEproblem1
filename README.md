@@ -48,8 +48,6 @@ Tasks                         | Description
 npm start                     | Run development server on `http://localhost:4200/`
 npm run build [-- --env=prod] | Lint code and build app for production in `dist/` folder
 npm test                      | Run unit tests via [Karma](https://karma-runner.github.io) in watch mode
-npm run e2e                   | Run e2e tests using [Protractor](http://www.protractortest.org)
-npm run lint                  | Lint code
 
 
 The default build environment is `prod`.
